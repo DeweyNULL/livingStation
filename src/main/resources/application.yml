@@ -1,0 +1,11 @@
+spring:
+  profiles:
+    active: dev
+
+test:
+  user:
+    username : dewey
+    age : 18
+    toString : the age of dewey is 18
+
+

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<script src="https://code.jquery.com/jquery-1.12.4.js" integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU=" crossorigin="anonymous"></script>
+
+	<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+	<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+	<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/npm.js"></script>
+
+	<!--
+        作者：deweynull@163.com
+        时间：2018-08-06
+        描述：我的js功能块
+    -->
+	<script src="../static/js/mainPageFunc.js"></script>
+
+	<style type="text/css">
+		.boxa {
+			margin: 0;
+			width: 250px;
+			height: 20px;
+			margin: 0px 5px 0px 0px;
+		}
+
+		.boxa-l {
+			float: left;
+			width: 200px;
+			height: 20px;
+			font-size: 12px;
+			font-weight: 500;
+			line-height: 20px;
+			text-align: left;
+			font-family: "微软雅黑";
+			margin-bottom: 1px;
+		}
+
+		.boxa-r {
+			float: right;
+			width: 50px;
+			height: 20px;
+			font-family: "微软雅黑";
+			font-size: 12px;
+			font-stretch: 100%;
+			font-weight: 400;
+			text-align: right;
+			margin-bottom: 1px;
+		}
+	</style>
+
+</head>
+
+<body style="padding-top: 40px; padding-bottom: 40px; background-color: rgb(238,238,238);">
+<div id="container-fluid">
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">个人的直播收藏小站</a>
+			</div>
+			<div id="navbar" class="collapse navbar-collapse">
+				<ul class="nav navbar-nav navbar-left">
+
+					<li>
+						<a id="welcome">欢迎你,</a>
+					</li>
+					<li>
+						<a href="#" id="userInfo"></a>
+					</li>
+
+					<li style="">
+						<a id="btnAdd">添加</a>
+					</li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+
+					<li>
+						<a href="LogoutController">登出</a>
+					</li>
+				</ul>
+			</div>
+
+			<!--/.nav-collapse -->
+		</div>
+	</nav>
+
+	<div class="row" style="margin-top: 50px; margin-left: 50px;">
+		<div class="col-md-2">
+			<ul id="main-nav" class="nav nav-tabs nav-stacked" style="">
+				<li class="active">
+					<a href="#">
+						<i class="glyphicon glyphicon-th-large"></i> 首页
+					</a>
+				</li>
+				<li>
+					<a href="#systemSetting" class="nav-header collapsed" data-toggle="collapse">
+						<i class="glyphicon glyphicon-cog"></i> 个人信息设置
+						<span class="pull-right glyphicon glyphicon-chevron-down"></span>
+					</a>
+					<ul id="systemSetting" class="nav nav-list collapse secondmenu" style="height: 0px;">
+						<li>
+							<a href="#"><i class="glyphicon glyphicon-asterisk"></i>个人管理</a>
+						</li>
+						<li>
+							<a href="#"><i class="glyphicon glyphicon-edit"></i>修改密码</a>
+						</li>
+						<li>
+							<a href="#"><i class="glyphicon glyphicon-eye-open"></i>日志查看</a>
+						</li>
+					</ul>
+				</li>
+
+				<li>
+					<a href="#" id="aClick" data-toggle="modal" data-target="#exampleModal">
+						<i class="glyphicon glyphicon-plus"></i> 添加房间
+
+					</a>
+				</li>
+				<li>
+					<a href="#" id="aDelete" data-toggle="modal" data-target="#exampleModal">
+						<i class="glyphicon glyphicon-remove"></i> 删除房间
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<i class="glyphicon glyphicon-fire"></i> 关于系统
+					</a>
+				</li>
+			</ul>
+		</div>
+
+		<div class="col-md-10" id="mycontentblock">
+
+		</div>
+	</div>
+	<!--
+        作者：deweynull@163.com
+        时间：2018-08-06
+        描述：弹出框
+    -->
+	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="exampleModalLabel">添加收藏</h4>
+				</div>
+				<div class="modal-body">
+					<form>
+						<div class="form-group">
+							<div class="input-group-btn" style="width: 100px;">
+								<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">请选择网站类型 <span class="caret"></span></button>
+								<ul class="dropdown-menu">
+									<li>
+										<a href="#" id="douyuSelect">斗鱼</a>
+
+									</li>
+								</ul>
+							</div>
+							<!-- /btn-group -->
+
+							<div class="input-group">
+								<span class="input-group-addon" id="inputnote">https://www.douyu.com/</span>
+								<input type="text" class="form-control" id="iptContent" placeholder="请输入房间号:">
+							</div>
+						</div>
+
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" id="btn_ConfirmAdd">添加</button>
+					<button type="button" class="btn btn-default" id="btn_AddClose" data-dismiss="modal">关闭</button>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- 信息删除确认 -->
+	<div class="modal fade" id="delcfmModel">
+		<div class="modal-dialog">
+			<div class="modal-content message_align">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+					<h4 class="modal-title">提示信息</h4>
+				</div>
+				<div class="modal-body">
+					<p>您确认要删除吗？</p>
+				</div>
+				<div class="modal-footer">
+					<input type="hidden" id="url" />
+					<button type="button" class="btn btn-success" id="btnConfirm" data-dismiss="modal">确定</button>
+					<button type="button" class="btn btn-default" id="btnCancel" data-dismiss="modal">取消</button>
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
+	<!-- /.modal -->
+
+</div>
+</body>
+
+</html>
